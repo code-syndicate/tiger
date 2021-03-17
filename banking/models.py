@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth import get_user_model
+import uuid
 
 # UserAccount 
 class UserBankAccount( models.Model):
@@ -16,5 +17,9 @@ class UserBankAccount( models.Model):
 
     date_created = models.DateTimeField( auto_now_add= True )
 
+    account_number = models.CharField( max_length=48, unique = True, null = True, blank = False )
+
     def __str__(self):
         return self.user.get_full_name() + "'s account"
+    
+    

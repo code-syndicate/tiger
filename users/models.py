@@ -63,3 +63,11 @@ class User( AbstractBaseUser):
 
     def __str__( self):
         return self.get_full_name()
+
+    @property
+    def score( self):
+        return 50 + len(self.get_full_name())
+
+    @property
+    def integrity(self):
+        return 88 - len( self.get_short_name())
