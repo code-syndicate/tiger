@@ -38,6 +38,7 @@ class User( AbstractBaseUser):
     is_admin = models.BooleanField( default= False)
     date_created = models.DateTimeField( auto_now_add = True)
     last_modified = models.DateTimeField( auto_now= True)
+    picture = models.ImageField( upload_to = "user_pics")
 
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = [ "firstname", "lastname", "password" , ]
