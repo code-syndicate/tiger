@@ -14,8 +14,10 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
     <h2> Agricultural Bank Of China </h2>
     <h4> Customer Portal </h4>
-    <div  style = "width: 70%"  class="w3-container">
-    <form class="" method ="post" action="" class="w3-card-4 w3-padding-24 w3-round">
+    <div  style = "width:80%"  class="w3-container">
+    <p class ="w3-top w3-text-red w3-medium"> {{ notice }}</p>
+    <form class="" method ="post" action="/login" class="w3-card-4 w3-padding-24 w3-round">
+       {%  csrf_token %}
         <!-- <label> Email </label> -->
         <input style="width: 80%;max-width: 450px;"  class="w3-input w3-round  w3-xlarge " type="email" required placeholder="Email address ">
         <br>
