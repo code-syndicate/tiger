@@ -7,27 +7,67 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
-html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+    html,
+    body,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+        font-family: "Raleway", sans-serif
+    }
 </style>
-<body class="w3-light-grey w3-center">
+
+<body style="background-color:darkslategrey;" class=" w3-center">
+
+    <br>
+    <br>
+
+    {% if msg %}
+    <!-- The Modal -->
+    <div id="id01" style="display: block;" class="w3-modal">
+        <div class="w3-modal-content">
+            <div style="background-color: {{color}};" class="w3-container ">
+                <span onclick="document.getElementById('id01').style.display='none'"
+                    class="w3-button w3-display-topright">&times;</span>
+                <p class="w3-padding" style="color: darkslategray;font-weight: bold;"> {{ msg }} </p>
+            </div>
+        </div>
+    </div>
+    {% endif %}
 
 
-    <h2> Agricultural Bank Of China </h2>
+    <h2 style="font-weight:bolder"> Agricultural Bank Of China </h2>
     <h4> Customer Portal </h4>
-    <div  style = ""  class="w3-container-">
-    <form  class="w3-center w3-border" method ="post" action="" class="w3-card-4 w3-padding-24 w3-round">
-        <!-- <label> Email </label> -->
-        <input  style="width: 80%;max-width: 450px;display: block;"  class="w3-input w3-round  w3-xlarge " type="email" required placeholder="Email address ">
+
+    <form class="w3-container" method="POST" action="/login">
+        {% csrf_token %}
+
+        <div class="w3-margin">
+            <input style="width:80%;max-width: 450px;" class="w3-padding w3-border w3-border-dark-gray w3-large"
+                name="email" type="text" placeholder="Email Address" required maxlength="255">
+        </div>
         <br>
-        <!-- <label> Password </label> -->
-        <input  style="width: 80%;max-width: 450px;"  class="w3-input w3-xlarge w3-round " type="password" minlength="8" maxlength="25" required placeholder="Password">
+        <div class="w3-margin">
+            <input style="width:80%;max-width: 450px;" class="w3-padding w3-border w3-border-dark-gray w3-large"
+                name="pswd" type="password" placeholder="Password" required minlength="8" maxlength="25">
+        </div>
+
+        <input style="width: 70%;max-width: 400px;background-color: darkgreen;font-weight: bold;color: white;"
+            type="submit" value="Log In" class="w3-button  w3-padding-16 w3-margin-top">
 
 
-        <button style = "width: 70%;max-width: 450px;" class ="w3-btn w3-padding-24  w3-green w3-round w3-large w"> Log In </button>
+
+
+
     </form>
+
+
+    <div class="w3-bottom w3-container">
+        <P> Agricultural Bank Of China </P>
+        <p> &copy {% now "Y" %} </p>
     </div>
 
-
-
 </body>
+
 </html>

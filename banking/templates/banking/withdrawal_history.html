@@ -1,0 +1,54 @@
+{% extends "banking/dashboard.html" %}
+
+{% block title %}
+<title> Transfer History </title>
+{% endblock %}
+
+
+{% block page_title %}
+Transfer History
+{% endblock %}
+
+
+{% block history %}
+<div class="w3-panel">
+    <div class="w3-row-padding" style="margin:0 -16px">
+
+        <div class="w3-col l12 w3-margin-bottom">
+
+        {% if not  histories %}
+        <div class="w3-container">
+        <h2 style="font-weight: bolder;" class="w3-large w3-text-black w3-opacity "> No history to show </h2>
+        </div>
+        {% endif %}
+
+            <h5> Transfers </h5>
+            <table class="w3-table w3-striped w3-white">
+
+                <tr>
+                    <th> <i class="fa fa-yen w3-text-green w3-large"></i> </th>
+                    <th> ID </th>
+                    <th> Tx Ref </th>
+                    <th> Amount(&#165;) </th>
+                    <th> Generated At </th>
+                    <th> Status </th>
+                </tr>
+
+                {%   for history in histories  %}
+                <tr>
+                    <td><i class="fa fa-yen w3-text-blue w3-large"></i></td>
+                    <td> {{ history.id }} </td>
+                    <td><i> {{ history.tx_ref | truncatechars:15 }} </i></td>
+                    <td> {{ history.amount }} </td>
+                    <td><i> {{ history.date.date }}, {{ hsitory.date.time }} </i></td>
+                    <td> <i style="font-weight: bolder;font-size: 1rem;color:grey"> {{ history.status }} </i></td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}
+<br>
+<br>
+<hr>
