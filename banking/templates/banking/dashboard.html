@@ -67,7 +67,7 @@
 
             <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-flag fa-fw"></i> 
                 Country : {{request.user.country}} </a>
-            <a onclick = "switchList()"  class="w3-bar-item w3-button w3-padding w3-text-blue-gray     "><i class="fa fa-yen fa-fw"></i> 
+            <a onclick = "switchList()" {% block transfer %} href = "/user/transfer" {% endblock %} class="w3-bar-item w3-button w3-padding w3-text-blue-gray     "><i class="fa fa-yen fa-fw"></i> 
                 Transfer </a>
 
                 <div style="display: none;" id = "tlist" class="w3-container w3-bar w3-margin-left">
