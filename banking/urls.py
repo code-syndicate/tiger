@@ -10,6 +10,7 @@ urlpatterns = [
     path( 'login', views.LoginView, name = "Loginview "),
     path('user/dashboard/', views.DashBoardView, name = "dashboardview"),
     
-    path('user/withdraw-history/', views.WithdrawalHistoryView, name = "historyview"),
-
+    path('user/transfer-history/', views.WithdrawalHistoryView, name = "historyview"),
+    
+    path('user/transfer/', views.TransferView, name = "transferview"),
 ]

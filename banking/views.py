@@ -71,3 +71,12 @@ def WithdrawalHistoryView(request):
         "histories" : histories,
     }
     return render(request, 'banking/withdrawal_history.html', context )
+
+@login_required( redirect_field_name="redirect_url", login_url="/login")
+def TransferView( request):
+    if request.method == "GET":
+        return render( request, "banking/transfer.html")
+    elif request.method == "POST":
+        return render( request, "banking/login.html")
+    else:
+        return HttpResponse( status = 400 )

@@ -71,8 +71,8 @@
                 Transfer </a>
 
                 <div style="display: none;" id = "tlist" class="w3-container w3-bar w3-margin-left">
-                    <a class="w3-bar-item" href = "" > Local transfer</a>
-                    <a class="w3-bar-item" href="" >  International Transfer </a>
+                    <a  onclick = "switchToLocal()" class="w3-bar-item w3-text-light-blue"  > Local transfer</a>
+                    <a  onclick = "switchToIntl()" class="w3-bar-item w3-text-light-blue"  >  International Transfer </a>
                 </div>
             <a href="{% url 'banking:historyview' %}" class="w3-bar-item w3-button w3-padding w3-text-blue-gray "><i
                     class="fa fa-history fa-fw"></i> 
@@ -230,6 +230,10 @@
                 d.style.display = "block"
             }
         }
+
+        {% block script %}
+
+        {% endblock script %}
     </script>
 
 </body>
