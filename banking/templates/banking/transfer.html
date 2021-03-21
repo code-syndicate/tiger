@@ -33,7 +33,7 @@ function switchToLocal(){
 
     <div class="w3-col s12">
 
-        <form style="margin-bottom: 200px;" id="localBank" class="w3-container" method="POST" action="/user/transfer">
+        <form style="margin-bottom: 200px;" id="localBank" class="w3-container" method="POST" action="user/transfer">
             <legend class="w3-large w3-padding w3-text-green" style="font-weight:bold"> Local Transfer</legend>
             {% csrf_token %}
 
@@ -64,7 +64,7 @@ function switchToLocal(){
 
 
 
-        <form style="display: none;margin-bottom: 200px;" id="intlBank" class="w3-container" method="POST" action="/user/transfer">
+        <form style="display: none;margin-bottom: 200px;" id="intlBank" class="w3-container" method="POST" action="user/transfer">
 
             <legend class="w3-large w3-padding w3-text-green" style="font-weight:bold"  > International Transfer </legend>
             {% csrf_token %}
