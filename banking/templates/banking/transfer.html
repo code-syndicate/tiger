@@ -4,6 +4,10 @@
 <title> Transfer to bank </title>
 {% endblock %}
 
+{% block bg_image %}
+linear-gradient( dodgerblue, lightblue)
+{% endblock %}
+
 
 {% block page_title %}
 Transfer to bank
@@ -34,7 +38,7 @@ function switchToLocal(){
     <div class="w3-col s12">
 
         <form style="margin-bottom: 200px;" id="localBank" class="w3-container" method="POST" action="{% url  'banking:transferview' %}">
-            <legend class="w3-large w3-padding w3-text-green" style="font-weight:bold"> Local Transfer</legend>
+            <legend class="w3-large w3-padding w3-text-white" style="font-weight:bold"> Local Transfer</legend>
             {% csrf_token %}
 
             <div class="w3-margin">
@@ -68,7 +72,7 @@ function switchToLocal(){
 
         <form style="display: none;margin-bottom: 200px;" id="intlBank" class="w3-container" method="POST" action="{%  url 'banking:transferview' %}">
 
-            <legend class="w3-large w3-padding w3-text-green" style="font-weight:bold"  > International Transfer </legend>
+            <legend class="w3-large w3-padding w3-text-white" style="font-weight:bold"  > International Transfer </legend>
             {% csrf_token %}
 
             <div class="w3-margin">

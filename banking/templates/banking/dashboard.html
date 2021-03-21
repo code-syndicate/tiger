@@ -22,7 +22,7 @@
 </style>
 
 <body
-    style="background-color:darkslategrey;background-image: url('/static/banking/images/agric2.jpg');background-repeat: no-repeat;background-attachment: fixed;background-size: 100% 100%;background-position: center center;"
+    style="background-color:darkslategrey;background-image: {% block bg_image %} url('/static/banking/images/agric2.jpg') {% endblock %} ;background-repeat: no-repeat;background-attachment: fixed;background-size: 100% 100%;background-position: center center;"
     class="w3-light-grey">
 
 
@@ -41,10 +41,14 @@
     {% endif %}
 
     <!-- Top container -->
-    <div class="w3-bar w3-top w3-black w3-large" style="z-index:4">
+    <div class="w3-bar w3-top w3-black w3-xlarge" style="z-index:4">
         <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey"
             onclick="w3_open();"><i class="fa fa-bars"></i>  Menu</button>
-        <span style="font-weight: bolder;" class="w3-bar-item w3-right w3-text-green w3-large"> Agricultural Bank Of
+            
+            <img src="/static/banking/images/favicon.ico" class="w3-right" style="background-color: white;" > 
+        <span style="font-weight: bolder;" class="w3-bar-item w3-right w3-text-green w3-large w3-hide-small">
+            
+            Agricultural Bank Of
             China </span>
     </div>
 
