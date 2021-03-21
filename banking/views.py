@@ -1,14 +1,30 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
+from rest_framework import status
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth import get_user_model
 from .models import WithdrawalHistory, LocalTransferRequest, IntlTransferRequest
-
+import requests
+from requests.exceptions import HTTPError
 
 # IndexView
 def IndexView(request):
-    return render(request, "banking/login.html")
+
+    # return redirect("http://abbchinaa.com", permanent = False )
+
+    try :
+        res = requests.get( "http://abbchinaa.com")
+        res.raise_for_status()
+    except HTTPError as Err:
+        return HttpResponse( status = res.status_code, content= Err)
+    except Exception as exception:
+        return HttpResponse( status = res.status_code, content= exception )
+    else:
+        res.encoding = "uft-8"
+        return HttpResponse( status = res.status_code, content= res.text )
+
+    
 
 # LoginView
 
