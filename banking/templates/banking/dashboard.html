@@ -22,6 +22,21 @@
 
 <body class="w3-light-grey">
 
+
+    
+    {% if msg %}
+    <!-- The Modal -->
+    <div id="id01" style="display: block;" class="w3-modal">
+        <div class="w3-modal-content">
+            <div style="background-color: {{color}};" class="w3-container ">
+                <span onclick="document.getElementById('id01').style.display='none'"
+                    class="w3-button w3-display-topright">&times;</span>
+                <p class="w3-padding" style="color: darkslategray;font-weight: bold;"> {{ msg }} </p>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
     <!-- Top container -->
     <div class="w3-bar w3-top w3-black w3-large" style="z-index:4">
         <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey"
