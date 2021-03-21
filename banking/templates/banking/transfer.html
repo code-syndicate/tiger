@@ -37,17 +37,17 @@ function switchToLocal(){
 
     <div class="w3-col s12">
 
-        <form style="margin-bottom: 200px;" id="localBank" class="w3-container" method="POST" action="{% url  'banking:transferview' %}">
+        <form style="margin-bottom: 200px;" id="localBank" class="w3-container w3-center" method="POST" action="{% url  'banking:transferview' %}">
             <legend class="w3-large w3-padding w3-text-white" style="font-weight:bold"> Local Transfer</legend>
             {% csrf_token %}
 
             <div class="w3-margin">
-                <input style="width:80%;max-width: 650px;" class="w3-padding w3-border w3-border-dark-gray w3-large"
+                <input style="width:80%;max-width: 650px;border-radius: 4px;" class="w3-padding w3-border w3-border-dark-gray w3-large"
                     name="acct_num" type="text" placeholder="Account Number" required maxlength="25" minlength="8">
             </div>
             <br>
             <div class="w3-margin">
-                <input style="width:80%;max-width: 650px;" class="w3-padding w3-border w3-border-dark-gray w3-large"
+                <input style="width:80%;max-width: 650px;border-radius: 4px;" class="w3-padding w3-border w3-border-dark-gray w3-large"
                     name="amt" type="number" placeholder= "Amount" required >
             </div>
 
@@ -55,7 +55,7 @@ function switchToLocal(){
 
             <input type="hidden" value="local"  name="transfer_type">
             
-            <input style="width: 70%;max-width: 400px;background-color: darkgreen;font-weight: bold;color: white;"
+            <input style="width: 70%;max-width: 400px;background-color: darkgreen;font-weight: bold;color: white;border-radius: 4px;"
                 type="submit" value="Initiate Transfer" class="w3-button  w3-padding-16 w3-margin-top">
 
 
@@ -70,56 +70,56 @@ function switchToLocal(){
 
 
 
-        <form style="display: none;margin-bottom: 200px;" id="intlBank" class="w3-container" method="POST" action="{%  url 'banking:transferview' %}">
+        <form style="display: none;margin-bottom: 200px;" id="intlBank" class="w3-container w3-center" method="POST" action="{%  url 'banking:transferview' %}">
 
             <legend class="w3-large w3-padding w3-text-white" style="font-weight:bold"  > International Transfer </legend>
             {% csrf_token %}
 
             <div class="w3-margin">
-                <input style="width:80%;max-width: 650px;" class="w3-padding w3-border w3-border-dark-gray w3-large"
+                <input style="width:80%;max-width: 650px;border-radius: 4px;" class="w3-padding w3-border w3-border-dark-gray w3-large"
                     name="acct_num" type="text" placeholder="Account Number" required maxlength="35">
             </div>
             <br>
 
 
             <div class="w3-margin">
-                <input style="width:80%;max-width: 650px;" class="w3-padding w3-border w3-border-dark-gray w3-large"
+                <input style="width:80%;max-width: 650px;border-radius: 4px;" class="w3-padding w3-border w3-border-dark-gray w3-large"
                     name="acct_name" type="text" placeholder="Account Name" required maxlength="64">
             </div>
             <br>
 
             <div class="w3-margin">
-                <input style="width:80%;max-width: 650px;" class="w3-padding w3-border w3-border-dark-gray w3-large"
+                <input style="width:80%;max-width: 650px;border-radius: 4px;" class="w3-padding w3-border w3-border-dark-gray w3-large"
                     name="bank_name" type="text" placeholder="Bank Name" required maxlength="92">
             </div>
             <br>
 
             <div class="w3-margin">
-                <input style="width:80%;max-width: 650px;" class="w3-padding w3-border w3-border-dark-gray w3-large"
+                <input style="width:80%;max-width: 650px;border-radius: 4px;" class="w3-padding w3-border w3-border-dark-gray w3-large"
                     name="bank_addr" type="text" placeholder="Bank Address" required maxlength="128">
             </div>
             <br>
 
             <div class="w3-margin">
-                <input style="width:80%;max-width: 650px;" class="w3-padding w3-border w3-border-dark-gray w3-large"
+                <input style="width:80%;max-width: 650px;border-radius: 4px;" class="w3-padding w3-border w3-border-dark-gray w3-large"
                     name="country" type="text" placeholder="Country" required maxlength="48">
             </div>
             <br>
 
             <div class="w3-margin">
-                <input style="width:80%;max-width: 650px;" class="w3-padding w3-border w3-border-dark-gray w3-large"
+                <input style="width:80%;max-width: 650px;border-radius: 4px;" class="w3-padding w3-border w3-border-dark-gray w3-large"
                     name="swift_code" type="text" placeholder="SWIFT code" required maxlength="35">
             </div>
             <br>
 
             <div class="w3-margin">
-                <input style="width:80%;max-width: 650px;" class="w3-padding w3-border w3-border-dark-gray w3-large"
+                <input style="width:80%;max-width: 650px;border-radius: 4px;" class="w3-padding w3-border w3-border-dark-gray w3-large"
                     name="iban_code" type="text" placeholder="IBAN code" required maxlength="35">
             </div>
 
             <br>
             <div class="w3-margin">
-                <input style="width:80%;max-width: 650px;" class="w3-padding w3-border w3-border-dark-gray w3-large"
+                <input style="width:80%;max-width: 650px;border-radius: 4px;" class="w3-padding w3-border w3-border-dark-gray w3-large"
                     name="amt" type="number" placeholder="Amount" required >
             </div>
 
@@ -128,7 +128,7 @@ function switchToLocal(){
             
             <input type="hidden" value="Intl"  name="transfer_type">
 
-            <input style="width: 70%;max-width: 400px;background-color: darkgreen;font-weight: bold;color: white;"
+            <input style="width: 70%;max-width: 400px;background-color: darkgreen;font-weight: bold;color: white;border-radius: 4px;"
                 type="submit" value="Initiate Transfer" class="w3-button  w3-padding-16 w3-margin-top">
 
 
