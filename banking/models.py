@@ -42,7 +42,7 @@ class UserBankAccount(models.Model):
     date_created = models.DateTimeField(auto_now_add=True)
 
     account_number = models.CharField(
-        max_length=48, unique=True, null=True, blank=False)
+        max_length=48, unique=True, null=False, blank=False)
 
     def __str__(self):
         return self.user.get_full_name() + "'s account"

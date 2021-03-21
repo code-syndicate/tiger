@@ -57,7 +57,19 @@ class User(AbstractBaseUser):
         return self.firstname
 
     def has_perm(self, perm):
-        return True
+        return True 
+    
+    @property
+    def pic_url( self ):
+        url = ""
+        if self.picture:
+            url = self.picture.url
+        return url
+        
+
+            
+            
+
 
     @property
     def is_staff(self):
