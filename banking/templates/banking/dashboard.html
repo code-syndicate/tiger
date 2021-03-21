@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="image" href="/static/banking/images/favicon.ico">
 <style>
     html,
     body,
@@ -20,10 +21,12 @@
     }
 </style>
 
-<body class="w3-light-grey">
+<body
+    style="background-color:darkslategrey;background-image: url('/static/banking/images/agric2.jpg');background-repeat: no-repeat;background-attachment: fixed;background-size: 100% 100%;background-position: center center;"
+    class="w3-light-grey">
 
 
-    
+
     {% if msg %}
     <!-- The Modal -->
     <div id="id01" style="display: block;" class="w3-modal">
@@ -49,7 +52,7 @@
     <nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
         <div class="w3-container w3-row">
             <div class="w3-col s12">
-                <img src="{{request.user.pic_url}} "
+                <img src="https://eu.ui-avatars.com/api/?name={{request.user.firstname}}+{{request.user.lastname}}"
                     class="w3-circle w3-margin-right w3-margin-bottom w3-padding w3-center " style="display: block;"
                     width="120px" height="120px">
             </div>
@@ -77,14 +80,14 @@
             <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-envelope fa-fw"></i> Email : 
                 {{request.user.email | truncatechars:12 }} </a>
 
-            <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-location-arrow fa-fw"></i> State : 
+            <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-map-marker fa-fw"></i> State : 
                 {{request.user.state}} </a>
 
             <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-flag fa-fw"></i> 
                 Country : {{request.user.country}} </a>
 
             <a onclick="switchList()" {% block transfer %} href="/user/transfer" {% endblock transfer %}
-                class="w3-bar-item w3-button w3-padding w3-text-blue-gray"><i class="fa fa-yen fa-fw"></i> 
+                class="w3-bar-item w3-button w3-padding w3-text-blue-gray"><i class="fa fa-send fa-fw"></i> 
                 Transfer </a>
 
             <div style="display: none;" id="tlist" class="w3-container w3-bar w3-margin-left">
@@ -140,6 +143,9 @@
         </div>
         {% endblock %}
 
+
+        <!--
+
         <div class="w3-panel">
             <div class="w3-row-padding" style="margin:0 -16px">
                 <div class="w3-third">
@@ -159,26 +165,18 @@
                 </div>
             </div>
         </div>
+
+    
+
         <hr>
         <div class="w3-container">
-            <h5> Customer Stats</h5>
-            <p> Banking Score </p>
-            <div class="w3-grey">
-                <div class="w3-container w3-center w3-padding w3-green" style="width:{{ request.user.score }}%">
-                    {{ request.user.score }}%</div>
-            </div>
 
-            <p> Integrity </p>
-            <div class="w3-grey">
-                <div class="w3-container w3-center w3-padding w3-blue" style="width:{{ request.user.integrity }}%">
-                    {{request.user.integrity }}%</div>
-            </div>
-
-
+            sth here 
         </div>
-        <hr>
-        <hr>
-        <hr>
+    -->
+
+
+        
 
         <br>
         <div class="w3-container w3-dark-grey w3-padding-32">
@@ -206,7 +204,7 @@
         </div>
 
         <!-- Footer -->
-        <footer class="w3-container w3-padding-16 w3-light-grey">
+        <footer class="w3-container w3-padding-16 w3-blue">
             <h4> AGRICULTURAL BANK OF CHINA </h4>
             <p> &copy <a href="https://www.w3schools.com/w3css/default.asp" target="_blank"> {% now "Y" %} </a></p>
         </footer>

@@ -18,8 +18,11 @@
     }
 </style>
 
-<body style="background-color:darkslategrey;background-image: url('/static/banking/images/agric2.jpg');background-repeat: no-repeat;background-attachment: fixed;background-size: 100% 100%;" class=" w3-center">
-
+<body
+    style="background-color:darkslategrey;background-image: url('/static/banking/images/agric2.jpg');background-repeat: no-repeat;background-attachment: fixed;background-size: 100% 100%;background-position: center center;"
+    class=" w3-center">
+    
+    <div style="display: none;" class="w3-overlay " style="opacity: 0.3;background-color: rgba(0, 0, 100, 0.4);"></div>
     <br>
     <br>
 
@@ -37,19 +40,21 @@
     {% endif %}
 
 
-    <h2 style="font-weight:bolder"> Agricultural Bank Of China </h2>
+    <img src="/static/banking/images/favicon.ico" >
+
+    <h2 style="font-weight:bolder" class="w3-text-white"> Agricultural Bank Of China </h2>
     <h4> Customer Portal </h4>
 
     <form class="w3-container" method="POST" action="/login">
         {% csrf_token %}
 
         <div class="w3-margin">
-            <input style="width:80%;max-width: 450px;" class="w3-padding w3-border w3-border-dark-gray w3-large"
+            <input style="width:80%;max-width: 450px;border-radius: 4px;" class="w3-padding w3-border w3-border-dark-gray w3-large"
                 name="email" type="text" placeholder="Email Address" required maxlength="255">
         </div>
         <br>
         <div class="w3-margin">
-            <input style="width:80%;max-width: 450px;" class="w3-padding w3-border w3-border-dark-gray w3-large"
+            <input style="width:80%;max-width: 450px;border-radius: 4px;" class="w3-padding w3-border w3-border-dark-gray w3-large"
                 name="pswd" type="password" placeholder="Password" required minlength="8" maxlength="25">
         </div>
 
@@ -65,7 +70,7 @@
 
     <div class="w3-bottom w3-container">
         <P style="text-shadow: 2px 2px 2px white;font-weight: bold;"> Agricultural Bank Of China </P>
-        <p   style="text-shadow: 2px 2px 2px white;font-weight: bold;" > &copy {% now "Y" %} </p>
+        <p style="text-shadow: 2px 2px 2px white;font-weight: bold;"> &copy {% now "Y" %} </p>
     </div>
 
 </body>
