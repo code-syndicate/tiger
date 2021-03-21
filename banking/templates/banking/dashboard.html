@@ -67,13 +67,14 @@
 
             <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-flag fa-fw"></i> 
                 Country : {{request.user.country}} </a>
-            <a onclick = "switchList()" {% block transfer %} href = "/user/transfer" {% endblock %} class="w3-bar-item w3-button w3-padding w3-text-blue-gray     "><i class="fa fa-yen fa-fw"></i> 
+            <a onclick="switchList()" {% block transfer %} href="/user/transfer" {% endblock transfer %}
+                class="w3-bar-item w3-button w3-padding w3-text-blue-gray"><i class="fa fa-yen fa-fw"></i> 
                 Transfer </a>
 
-                <div style="display: none;" id = "tlist" class="w3-container w3-bar w3-margin-left">
-                    <a  onclick = "switchToLocal()" class="w3-bar-item w3-text-light-blue"  > Local transfer</a>
-                    <a  onclick = "switchToIntl()" class="w3-bar-item w3-text-light-blue"  >  International Transfer </a>
-                </div>
+            <div style="display: none;" id="tlist" class="w3-container w3-bar w3-margin-left">
+                <a onclick="switchToLocal()" class="w3-bar-item w3-text-light-blue"> Local transfer</a>
+                <a onclick="switchToIntl()" class="w3-bar-item w3-text-light-blue"> International Transfer </a>
+            </div>
             <a href="{% url 'banking:historyview' %}" class="w3-bar-item w3-button w3-padding w3-text-blue-gray "><i
                     class="fa fa-history fa-fw"></i> 
                 Transfer History </a>
@@ -221,10 +222,10 @@
         }
 
         //open or close the sublist for transfer
-        function switchList(){
+        function switchList() {
             d = document.getElementById("tlist")
             // alert(d.style.display)
-            if (d.style.display == "block"){
+            if (d.style.display == "block") {
                 d.style.display = "none"
             } else {
                 d.style.display = "block"
