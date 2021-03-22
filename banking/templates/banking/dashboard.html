@@ -44,64 +44,81 @@
     <div class="w3-bar w3-top w3-black w3-xlarge" style="z-index:4">
         <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey"
             onclick="w3_open();"><i class="fa fa-bars"></i>  Menu</button>
-            
-            <img src="/static/banking/images/favicon.ico" class="w3-right" style="background-color: white;" > 
+
+        <img src="/static/banking/images/favicon.ico" class="w3-right" style="background-color: white;">
         <span style="font-weight: bolder;" class="w3-bar-item w3-right w3-text-green w3-large w3-hide-small">
-            
+
             Agricultural Bank Of
             China </span>
     </div>
 
     <!-- Sidebar/menu -->
-    <nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
+    <nav class="w3-sidebar w3-collapse w3-light-grey w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
         <div class="w3-container w3-row">
-            <div class="w3-col s12">
+            <div class="w3-col s6">
                 <img src="https://eu.ui-avatars.com/api/?name={{request.user.firstname}}+{{request.user.lastname}}"
-                    class="w3-circle w3-margin-right w3-margin-bottom w3-padding w3-center " style="display: block;"
+                    class="w3-circle w3-left w3-margin-right w3-margin-bottom w3-padding w3-center " style="display: block;"
                     width="120px" height="120px">
             </div>
-            <div class="w3-col s12 w3-bar">
-                <span>Welcome, <strong> {{ request.user.get_full_name }} </strong></span><br>
-                <a href="#" class="w3-bar-item w3-button"><i class="fa fa-bell"></i></a>
-                <a href="#" class="w3-bar-item w3-button"><i class="fa fa-user"></i></a>
-                <a href="/" class="w3-bar-item w3-button"><i class="fa fa-home"></i></a>
+            <div class="w3-col s6 w3-bar">
+                <span style="display: inline-block; padding-top: 50px;">Welcome, <strong> {{ request.user.get_full_name }} </strong></span><br>
+                <!--- <a href="#" class="w3-bar-item w3-button"><i class="fa fa-bell"></i></a>
+                <a href="/user/dashboard/" title="Dashboard" class="w3-bar-item w3-button"><i
+                        class="fa fa-dashboard"></i></a>
+                <a href="/" title="Homepage" class="w3-bar-item w3-button"><i class="fa fa-home"></i></a>
+                -->
+
+                
             </div>
         </div>
+
         <hr>
-        <div class="w3-container">
+
+                <a style="font-weight:bolder;font-family: 'Times New Roman', Times, serif;" href="#"
+                    class="w3-bar-item w3-button w3-padding">
+                    Account Number: {{request.user.account.account_number | truncatechars:12 }} </a>
+
+                <a style="font-weight: bolder;font-family: 'Times New Roman', Times, serif;" href="#"
+                    class="w3-bar-item w3-button w3-padding">Balance :
+                    &#165; {{request.user.account.balance }} </a>
+
+
+
+        <div class="w3-container w3-border-top w3-border-black">
             <h5 style="font-weight: bolder;"> Banking Dashboard</h5>
         </div>
-        <div class="w3-bar-block">
+        <div class="w3-bar-block ">
             <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black"
                 onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
-            <a href="#" class="w3-bar-item w3-button w3-padding "><i class="fa fa-yen fa-fw"></i>  Balance :
-                {{request.user.account.balance }} &#165; </a>
+
             <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-user-circle-o fa-fw"></i> 
                 {{request.user.get_full_name}} </a>
 
-            <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-money fa-fw"></i> 
-                Account Number : {{request.user.account.account_number | truncatechars:12 }} </a>
-            <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-envelope fa-fw"></i> Email : 
+            <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-envelope fa-fw"></i>
                 {{request.user.email | truncatechars:12 }} </a>
 
-            <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-map-marker fa-fw"></i> State : 
+            <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-map-marker fa-fw"></i>
                 {{request.user.state}} </a>
 
             <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-flag fa-fw"></i> 
-                Country : {{request.user.country}} </a>
+                {{request.user.country}} </a>
 
-            <a onclick="switchList()" {% block transfer %} href="/user/transfer" {% endblock transfer %}
+            <!-- <p style="font-weight: bolder;" class="w3-large w3-bar-item"> Transfer  <i class="fa fa-send-o"></i></p> -->
+            <br>
+
+            <a style="font-weight: bolder;" class="w3-large w3-bar-item" onclick="switchList()" {% block transfer %}
+                href="/user/transfer" {% endblock transfer %}
                 class="w3-bar-item w3-button w3-padding w3-text-blue-gray"><i class="fa fa-send fa-fw"></i> 
-                Transfer </a>
+                Transfer <i class="fa fa-caret-down fa-2x fa-fw w3-right"></i>  </a>
 
             <div style="display: none;" id="tlist" class="w3-container w3-bar w3-margin-left">
-                <a onclick="switchToLocal()" class="w3-bar-item w3-text-light-blue"> Local transfer</a>
-                <a onclick="switchToIntl()" class="w3-bar-item w3-text-light-blue"> International Transfer </a>
+                <a onclick="switchToLocal()" class="w3-bar-item w3-text-blue w3-hover-aqua"> Local transfer</a>
+                <a onclick="switchToIntl()" class="w3-bar-item w3-text-blue w3-hover-aqua"> International Transfer </a>
+                <a href="{% url 'banking:historyview' %}" class="w3-bar-item w3-button w3-padding w3-text-blue w3-hover-aqua ">
+                    Transfer History </a>
             </div>
 
-            <a href="{% url 'banking:historyview' %}" class="w3-bar-item w3-button w3-padding w3-text-blue-gray "><i
-                    class="fa fa-history fa-fw"></i> 
-                Transfer History </a>
+
         </div>
     </nav>
 
@@ -180,7 +197,7 @@
     -->
 
 
-        
+
 
         <br>
         <div class="w3-container w3-dark-grey w3-padding-32">
