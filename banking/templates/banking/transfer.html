@@ -23,6 +23,7 @@ Transfer to bank
 function switchToIntl(){
 document.getElementById("intlBank").style.display = "block";
 document.getElementById("localBank").style.display = "none";
+
 }
 
 function switchToLocal(){
@@ -30,17 +31,34 @@ document.getElementById("intlBank").style.display = "none";
 document.getElementById("localBank").style.display = "block";
 }
 
+
+//open or close the sublist for transfer
+        function switchList() {
+            d = document.getElementById("tlist")
+            caret = document.getElementById("caret_")
+            // alert(d.style.display)
+            if (d.style.display == "block") {
+                d.style.display = "none"
+                caret.className = "fa fa-caret-down fa-2x fa-fw w3-right"
+            } else {
+                
+                caret.className = "fa fa-caret-up fa-2x fa-fw w3-right"
+                d.style.display = "block"
+            }
+        }
+
+
 {% endblock script %}
 
 {% block history %}
 <div class="w3-row-padding w3-margin ">
 
-    <div class="w3-col s12 w3-center">
+    <div class="w3-col s12 ">
 
         <form
             style="padding-bottom: 50px;padding-top:10px; max-width: 700px;border-radius: 10px; margin-bottom: 200px;background-color: whitesmoke;"
             id="localBank" class="w3-container w3-center " method="POST" action="{% url  'banking:transferview' %}">
-            <legend class=" w3-large w3-padding w3-text-blue " style="font-weight:bold"> Local Transfer</legend>
+            <legend class=" w3-large w3-padding w3-text-blue  " style="font-weight:bold"> Local Transfer</legend>
             {% csrf_token %}
 
             <div class="w3-margin">
