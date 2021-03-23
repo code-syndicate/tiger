@@ -18,6 +18,10 @@ class LocalTransferRequest(models.Model):
     tx_ref = models.UUIDField(default=uuid.uuid4, unique=True)
     date = models.DateTimeField(auto_now_add=True, editable=False)
 
+    class Meta:
+        verbose_name_plural = "Local Transfer Requests"
+        verbose_name = "Local Transfer Request"
+
     def __str__(self):
         return self.user.get_full_name() + " transfer request " + str(self.id)
 
@@ -44,6 +48,10 @@ class IntlTransferRequest(models.Model):
     
     tx_ref = models.UUIDField(default=uuid.uuid4, unique=True)
     date = models.DateTimeField(auto_now_add=True, editable=False)
+
+    class Meta:
+        verbose_name = "International Transfer Request"
+        verbose_name_plural = "International Transfer Requests"
 
     def __str__(self):
         return self.user.get_full_name() + "   intl transfer request " + str(self.id)
@@ -91,5 +99,9 @@ class UserBankAccount(models.Model):
     account_number = models.CharField(
         max_length=48, unique=True, null=False, blank=False)
 
+    class Meta:
+        verbose_name = "Bank Account"
+        verbose_name_plural = "Bank Accounts"
+
     def __str__(self):
-        return self.user.get_full_name() + "'s account"
+        return self.account_number

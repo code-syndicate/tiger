@@ -43,10 +43,14 @@ class User(AbstractBaseUser):
     last_modified = models.DateTimeField(auto_now=True)
     state = models.CharField( max_length=55, blank=False, )
     country = models.CharField( max_length= 55, blank=False)
-    picture = models.ImageField(upload_to="user_pics")
+    picture = models.ImageField(upload_to="user_pics", null = True , blank = True)
 
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = ["firstname", "lastname", "password", ]
+
+    class Meta:
+        verbose_name_plural = "Customers"
+        verbose_name = "Customer"
 
     objects = CustomManager()
 
