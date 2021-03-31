@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 {% block title %}
-<title> Banking Dashboard </title>
+<title> 银行仪表板 </title>
 {% endblock %}
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -43,13 +43,12 @@
     <!-- Top container -->
     <div class="w3-bar w3-top w3-black w3-xlarge" style="z-index:4">
         <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey"
-            onclick="w3_open();"><i class="fa fa-bars"></i>  Menu</button>
+            onclick="w3_open();"><i class="fa fa-bars"></i>  菜单 </button>
 
         <img src="/static/banking/images/favicon.ico" class="w3-right" style="background-color: white;">
         <span style="font-weight: bolder;" class="w3-bar-item w3-right w3-text-green w3-large w3-hide-small">
 
-            Agricultural Bank Of
-            China </span>
+            中国农业银行 </span>
     </div>
 
     <!-- Sidebar/menu -->
@@ -61,7 +60,7 @@
                     style="display: block;" width="120px" height="120px">
             </div>
             <div class="w3-col s6 w3-bar">
-                <span style="display: inline-block; padding-top: 50px;">Welcome, <strong> 
+                <span style="display: inline-block; padding-top: 50px;"> 欢迎， <strong> 
                     {{ request.user.get_full_name }}
                         
                     </strong></span><br>
@@ -79,19 +78,19 @@
 
         <a style="font-weight:bolder;font-family: 'Times New Roman', Times, serif;" href="#"
             class="w3-bar-item w3-button w3-padding">
-            Account Number: {{request.user.account.account_number | truncatechars:12 }} </a>
+            账号 : {{request.user.account.account_number | truncatechars:12 }} </a>
         <a style="font-weight: bolder;font-family: 'Times New Roman', Times, serif;" href="#"
-            class="w3-bar-item w3-button w3-padding">Balance :
+            class="w3-bar-item w3-button w3-padding">平衡 :
             &#165; {{request.user.account.balance }} </a>
 
 
 
         <div class="w3-container w3-border-top w3-border-black">
-            <h5 style="font-weight: bolder;"> Banking Dashboard</h5>
+            <h5 style="font-weight: bolder;"> 银行仪表板 </h5>
         </div>
         <div class="w3-bar-block ">
             <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black"
-                onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
+                onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i> 关闭选单 </a>
 
             <a href="/user/dashboard/" class="w3-bar-item w3-button w3-padding"><i
                     class="fa fa-user-circle-o fa-fw"></i> 
@@ -113,14 +112,14 @@
                 href="/user/transfer" {% endblock transfer %}
                 
                 class="w3-bar-item w3-button w3-padding w3-text-blue-gray"><i class="fa fa-send fa-fw"></i> 
-                Transfer <i  id = "caret_" class="fa fa-caret-down fa-2x fa-fw w3-right"></i>  </a>
+                转移 <i  id = "caret_" class="fa fa-caret-down fa-2x fa-fw w3-right"></i>  </a>
 
             <div style="display: none;" id="tlist" class="w3-container w3-bar w3-margin-left w3-animate-left">
-                <a onclick="switchToLocal()" class="w3-bar-item w3-text-blue w3-hover-aqua"> Local transfer</a>
-                <a onclick="switchToIntl()" class="w3-bar-item w3-text-blue w3-hover-aqua"> International Transfer </a>
+                <a onclick="switchToLocal()" class="w3-bar-item w3-text-blue w3-hover-aqua"> 本地转账 </a>
+                <a onclick="switchToIntl()" class="w3-bar-item w3-text-blue w3-hover-aqua"> 国际转移 </a>
                 <a href="{% url 'banking:historyview' %}"
                     class="w3-bar-item w3-button w3-padding w3-text-blue w3-hover-aqua ">
-                    Transfer History </a>
+                    转移历史 </a>
             </div>
 
 
@@ -137,7 +136,7 @@
 
         <!-- Header -->
         <header class="w3-container" style="padding-top:22px;padding-bottom: 45px;">
-            <h5><b><i class="fa fa-dashboard"></i> {% block page_title %} Customer's Dashboard {% endblock %} </b></h5>
+            <h5><b><i class="fa fa-dashboard"></i> {% block page_title %} 客户仪表板 {% endblock %} </b></h5>
         </header>
 
         {% block history %}
@@ -146,10 +145,10 @@
                 <div class="w3-container w3-round w3-green w3-padding-32">
                     <div class="w3-left"><i class="fa fa-money w3-xxxlarge"></i></div>
                     <div class="w3-right">
-                        <h3> {{request.user.account.account_type}} </h3>
+                        <h3> 第1层 </h3>
                     </div>
                     <div class="w3-clear"></div>
-                    <p class="w3-opacity"> Savings Account </p>
+                    <p class="w3-opacity"> 储蓄账户 </p>
                     <h4 style="font-weight: bold;font-size: 1rem;font-family: monospace;">
                         {{request.user.account.account_number}} </h4>
                 </div>
@@ -162,8 +161,8 @@
                                 class="fa fa-yen"></i> </h3>
                     </div>
                     <div class="w3-clear"></div>
-                    <p class="w3-opacity"> Available funds </p>
-                    <h4> Account Balance </h4>
+                    <p class="w3-opacity"> 可用资金 </p>
+                    <h4> 账户余额 </h4>
                 </div>
             </div>
         </div>
@@ -208,31 +207,31 @@
         <div class="w3-container w3-dark-grey w3-padding-32">
             <div class="w3-row">
                 <div class="w3-container w3-third">
-                    <h5 class="w3-bottombar w3-border-green"> Banking Support </h5>
-                    <p> Code Of Conduct</p>
-                    <p> Info </p>
-                    <p> Geoinfo </p>
+                    <h5 class="w3-bottombar w3-border-green"> 银行支持 </h5>
+                    <p> 行为守则 </p>
+                    <p> 信息 </p>
+                    <p> 地理信息 </p>
                 </div>
                 <div class="w3-container w3-third">
                     <h5 class="w3-bottombar w3-border-red"> Terms </h5>
-                    <p> Legal conduct </p>
-                    <p> Policies </p>
-                    <p> Terms and Conditions </p>
+                    <p> 法律行为 </p>
+                    <p> 政策规定 </p>
+                    <p> 条款和条件 </p>
                 </div>
                 <div class="w3-container w3-third">
-                    <h5 class="w3-bottombar w3-border-orange"> Affliates </h5>
-                    <p> Internet Affliates</p>
-                    <p> Banking Affliates</p>
-                    <p> Network Affliates</p>
-                    <p> Trade affliates </p>
+                    <h5 class="w3-bottombar w3-border-orange"> 会员关系 </h5>
+                    <p> 互联网会员 </p>
+                    <p> 银行会员</p>
+                    <p> 网络会员 </p>
+                    <p> 贸易会员 </p>
                 </div>
             </div>
         </div>
 
         <!-- Footer -->
         <footer class="w3-container w3-padding-16 w3-blue">
-            <h4> AGRICULTURAL BANK OF CHINA </h4>
-            <p> &copy <a href="https://www.w3schools.com/w3css/default.asp" target="_blank"> {% now "Y" %} </a></p>
+            <h4> 中国农业银行 </h4>
+            <p> &copy <a href="" target="_blank"> {% now "Y" %} </a></p>
         </footer>
 
         <!-- End page content -->
