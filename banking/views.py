@@ -42,7 +42,7 @@ def LoginView(request):
         if email is None or pswd is None:
             context = {
                 "color": "yellow",
-                "msg": "Provide your complete account credentials"
+                "msg": "请提供完整的帐户凭据"
             }
             return render(request, "banking/login.html", context)
         else:
@@ -64,7 +64,7 @@ def LoginView(request):
             else:
                 context = {
                     "color": "red",
-                    "msg": "Invalid Customer Credentials"
+                    "msg": "无效的客户凭证"
                 }
                 return render(request, "banking/login.html", context)
     else:
