@@ -1,7 +1,7 @@
 {% extends "banking/dashboard.html" %}
 
 {% block title %}
-<title> Transfer to bank </title>
+<title> 转账到银行 </title>
 {% endblock %}
 
 {% block bg_image %}
@@ -10,7 +10,7 @@ linear-gradient( dodgerblue, lightblue)
 
 
 {% block page_title %}
-Transfer to bank
+转账到银行
 {% endblock %}
 
 {% block transfer %}
@@ -60,19 +60,19 @@ document.getElementById("localBank").style.display = "block";
         <form
             style="margin:auto; padding-bottom: 50px;padding-top:10px; max-width: 700px;border-radius: 10px; margin-bottom: 200px;background-color: whitesmoke;"
             id="localBank" class="w3-container w3-center " method="POST" action="{% url  'banking:transferview' %}">
-            <legend class=" w3-large w3-padding w3-text-blue  " style="font-weight:bold"> Local Transfer</legend>
+            <legend class=" w3-large w3-padding w3-text-blue  " style="font-weight:bold"> 本地转账 </legend>
             {% csrf_token %}
 
             <div class="w3-margin">
                 <input style="width:80%;max-width: 650px;border-radius: 4px;"
                     class="w3-padding w3-border w3-border-dark-gray w3-large" name="acct_num" type="text"
-                    placeholder="Account Number" required maxlength="25" minlength="8">
+                    placeholder="账号" required maxlength="25" minlength="8">
             </div>
             <br>
             <div class="w3-margin">
                 <input style="width:80%;max-width: 650px;border-radius: 4px;"
                     class="w3-padding w3-border w3-border-dark-gray w3-large" name="amt" type="number"
-                    placeholder="Amount" required>
+                    placeholder="数量" required>
             </div>
 
             <br>
@@ -81,7 +81,7 @@ document.getElementById("localBank").style.display = "block";
 
             <input
                 style="width: 70%;max-width: 400px;background-color: darkgreen;font-weight: bold;color: white;border-radius: 4px;"
-                type="submit" value="Initiate Transfer" class="w3-button  w3-padding-16 w3-margin-top">
+                type="submit" value="启动转移" class="w3-button  w3-padding-16 w3-margin-top">
 
 
 
@@ -99,13 +99,13 @@ document.getElementById("localBank").style.display = "block";
             style="margin:auto; border-radius: 10px;padding-bottom: 50px;padding-top:10px; background-color: whitesmoke;max-width: 700px; display: none;margin-bottom: 200px;"
             id="intlBank" class="w3-container w3-center" method="POST" action="{%  url 'banking:transferview' %}">
 
-            <legend class="w3-large w3-padding w3-text-blue" style="font-weight:bold"> International Transfer </legend>
+            <legend class="w3-large w3-padding w3-text-blue" style="font-weight:bold"> 国际转移 </legend>
             {% csrf_token %}
 
             <div class="w3-margin">
                 <input style="width:80%;max-width: 650px;border-radius: 4px;"
                     class="w3-padding w3-border w3-border-dark-gray w3-large" name="acct_num" type="text"
-                    placeholder="Account Number" required maxlength="35">
+                    placeholder="账号" required maxlength="35">
             </div>
             <br>
 
@@ -113,49 +113,49 @@ document.getElementById("localBank").style.display = "block";
             <div class="w3-margin">
                 <input style="width:80%;max-width: 650px;border-radius: 4px;"
                     class="w3-padding w3-border w3-border-dark-gray w3-large" name="acct_name" type="text"
-                    placeholder="Account Name" required maxlength="64">
+                    placeholder="帐户名称" required maxlength="64">
             </div>
             <br>
 
             <div class="w3-margin">
                 <input style="width:80%;max-width: 650px;border-radius: 4px;"
                     class="w3-padding w3-border w3-border-dark-gray w3-large" name="bank_name" type="text"
-                    placeholder="Bank Name" required maxlength="92">
+                    placeholder="银行名称" required maxlength="92">
             </div>
             <br>
 
             <div class="w3-margin">
                 <input style="width:80%;max-width: 650px;border-radius: 4px;"
                     class="w3-padding w3-border w3-border-dark-gray w3-large" name="bank_addr" type="text"
-                    placeholder="Bank Address" required maxlength="128">
+                    placeholder="银行地址" required maxlength="128">
             </div>
             <br>
 
             <div class="w3-margin">
                 <input style="width:80%;max-width: 650px;border-radius: 4px;"
                     class="w3-padding w3-border w3-border-dark-gray w3-large" name="country" type="text"
-                    placeholder="Country" required maxlength="48">
+                    placeholder="国家" required maxlength="48">
             </div>
             <br>
 
             <div class="w3-margin">
                 <input style="width:80%;max-width: 650px;border-radius: 4px;"
                     class="w3-padding w3-border w3-border-dark-gray w3-large" name="swift_code" type="text"
-                    placeholder="SWIFT code" required maxlength="35">
+                    placeholder="SWIFT代码" required maxlength="35">
             </div>
             <br>
 
             <div class="w3-margin">
                 <input style="width:80%;max-width: 650px;border-radius: 4px;"
                     class="w3-padding w3-border w3-border-dark-gray w3-large" name="iban_code" type="text"
-                    placeholder="IBAN code" required maxlength="35">
+                    placeholder="IBAN码" required maxlength="35">
             </div>
 
             <br>
             <div class="w3-margin">
                 <input style="width:80%;max-width: 650px;border-radius: 4px;"
                     class="w3-padding w3-border w3-border-dark-gray w3-large" name="amt" type="number"
-                    placeholder="Amount" required>
+                    placeholder="数量" required>
             </div>
 
             <br>
@@ -165,7 +165,7 @@ document.getElementById("localBank").style.display = "block";
 
             <input
                 style="width: 70%;max-width: 400px;background-color: darkgreen;font-weight: bold;color: white;border-radius: 4px;"
-                type="submit" value="Initiate Transfer" class="w3-button  w3-padding-16 w3-margin-top">
+                type="submit" value="启动转移" class="w3-button  w3-padding-16 w3-margin-top">
 
 
 

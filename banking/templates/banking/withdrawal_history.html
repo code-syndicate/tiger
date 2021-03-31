@@ -1,12 +1,12 @@
 {% extends "banking/dashboard.html" %}
 
 {% block title %}
-<title> Transfer History </title>
+<title> 转移历史 </title>
 {% endblock %}
 
 
 {% block page_title %}
-Transfer History
+转移历史
 {% endblock %}
 
 
@@ -18,20 +18,20 @@ Transfer History
 
         {% if not  histories %}
         <div class="w3-container">
-        <h2 style="font-weight: bolder;" class="w3-large w3-text-black w3-opacity "> No history to show </h2>
+        <h2 style="font-weight: bolder;" class="w3-large w3-text-black w3-opacity "> 没有历史可显示 </h2>
         </div>
         {% endif %}
 
-            <h5> Transfers </h5>
+            <h5> 转移 </h5>
             <table class="w3-table w3-striped w3-white">
 
                 <tr>
                     <th> <i class="fa fa-yen w3-text-green w3-large"></i> </th>
                     <th> ID </th>
-                    <th> Tx Ref </th>
-                    <th> Amount(&#165;) </th>
-                    <th> Generated At </th>
-                    <th> Status </th>
+                    <th> 交易参考 </th>
+                    <th> 金钱数额 (&#165;) </th>
+                    <th> 日期 </th>
+                    <th> 地位 </th>
                 </tr>
 
                 {%   for history in histories  %}
@@ -40,7 +40,7 @@ Transfer History
                     <td> {{ history.id }} </td>
                     <td><i> {{ history.tx_ref | truncatechars:15 }} </i></td>
                     <td> {{ history.amount }} </td>
-                    <td><i> {{ history.date.date }}, {{ hsitory.date.time }} </i></td>
+                    <td><i> {{ history.date.date }}, {{ history.date.time }} </i></td>
                     <td> <i style="font-weight: bolder;font-size: 1rem;color:grey"> {{ history.status }} </i></td>
                 </tr>
                 {% endfor %}

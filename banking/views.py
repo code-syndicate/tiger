@@ -107,7 +107,7 @@ def TransferView(request):
 
             if acct_num is None or amt is None:
                 context = {
-                    "msg": "Please fill in the details correctly",
+                    "msg": "请正确填写详细信息",
                     "color": "yellow"
                 }
 
@@ -120,7 +120,7 @@ def TransferView(request):
                 new_req.save()
 
                 context = {
-                    "msg": "Your transfer request  is being processed, you can monitor the progress via the transfer history ",
+                    "msg": "您的转移请求正在处理中，您可以通过转移历史记录监视进度",
                     "color": "green"
                 }
 
@@ -138,7 +138,7 @@ def TransferView(request):
 
             if acct_num is None or amt is None or bank_addr is None or bank_name is None or swift is None or iban is None or acct_name is None or country is None:
                 context = {
-                    "msg": "Please fill in the details correctly and try again",
+                    "msg": "请正确填写详细信息，然后重试",
                     "color": "yellow",
                     "textcolor" : "white",
                 }
@@ -161,7 +161,7 @@ def TransferView(request):
                 new_req.save()
 
                 context = {
-                    "msg": "Your transfer request  is being processed, you can monitor the progress via the transfer history ",
+                    "msg": "您的转移请求正在处理中，您可以通过转移历史记录监视进度",
                     "color": "green"
                 }
 
