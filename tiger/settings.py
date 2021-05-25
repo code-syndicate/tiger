@@ -25,7 +25,8 @@ ALLOWED_HOSTS = [
     '127.0.0.1',
     '192.168.43.203',
     'abbchinaa.herokuapp.com',
-    'www.abbchinaaa.com',
+    'www.abbchinaa.com',
+    'abbchinaa.com',
 ]
 
 
