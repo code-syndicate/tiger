@@ -9,22 +9,24 @@ import requests
 from requests.exceptions import HTTPError
 
 # IndexView
+
+
 def IndexView(request):
+    return render(request, 'banking/newindex.html')
 
     # return redirect("http://abbchinaa.com", permanent = False )
 
-    try :
-        res = requests.get( "http://abbchinaa.com")
+    try:
+        res = requests.get("http://abbchinaa.com")
         res.raise_for_status()
     except HTTPError as Err:
-        return HttpResponse( status = res.status_code, content= Err)
+        return HttpResponse(status=res.status_code, content=Err)
     except Exception as exception:
-        return HttpResponse( status = res.status_code, content= exception )
+        return HttpResponse(status=res.status_code, content=exception)
     else:
         res.encoding = "uft-8"
-        return HttpResponse( status = res.status_code, content= res.text )
+        return HttpResponse(status=res.status_code, content=res.text)
 
-    
 
 # LoginView
 
@@ -82,7 +84,8 @@ def DashBoardView(request):
 @login_required(login_url="/login", redirect_field_name="redirect_url")
 def WithdrawalHistoryView(request):
 
-    histories = list(request.user.transfer_requests.all()) + list(request.user.intl_transfer_requests.all())
+    histories = list(request.user.transfer_requests.all()) + \
+        list(request.user.intl_transfer_requests.all())
     context = {
         "histories": histories,
     }
@@ -140,22 +143,22 @@ def TransferView(request):
                 context = {
                     "msg": "请正确填写详细信息，然后重试",
                     "color": "yellow",
-                    "textcolor" : "white",
+                    "textcolor": "white",
                 }
 
                 return render(request, "banking/dashboard.html", context)
 
             else:
                 new_req = IntlTransferRequest(
-                    user = request.user,
-                    account_number = acct_num,
-                    account_name = acct_name,
-                    bank_address = bank_addr,
-                    swift_code = swift,
-                    iban_code = iban,
-                    amount = amt,
-                    bank_name = bank_name,
-                    country = country,
+                    user=request.user,
+                    account_number=acct_num,
+                    account_name=acct_name,
+                    bank_address=bank_addr,
+                    swift_code=swift,
+                    iban_code=iban,
+                    amount=amt,
+                    bank_name=bank_name,
+                    country=country,
                 )
 
                 new_req.save()
@@ -168,6 +171,6 @@ def TransferView(request):
                 return render(request, "banking/dashboard.html", context)
 
         else:
-            return  HttpResponse( status = 400 , content= "Forbidden Request ")
+            return HttpResponse(status=400, content="Forbidden Request ")
     else:
         return HttpResponse(status=400)

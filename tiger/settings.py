@@ -3,6 +3,7 @@ Django settings for tiger project.
 
 """
 
+import dj_database_url
 from pathlib import Path
 import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -20,6 +21,7 @@ SECRET_KEY = '%hl_+th+^4g+y3jfa0x(^1^a^&ai&*d_%)8&+@6l%)5_si0(4m'
 DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
 ALLOWED_HOSTS = [
+    'localhost',
     '127.0.0.1',
     '192.168.43.203',
     'abbchinaa.herokuapp.com',
@@ -121,18 +123,17 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-AUTH_USER_MODEL =  "users.User"
+AUTH_USER_MODEL = "users.User"
 
 
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 MEDIA_ROOT = BASE_DIR / 'staticfiles/assets'
-MEDIA_URL = '/assets/' 
+MEDIA_URL = '/assets/'
 
 # Simplified static file serving.
 # https://warehouse.python.org/project/whitenoise/
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Heroku: Update database configuration from $DATABASE_URL.
-import dj_database_url
 db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
